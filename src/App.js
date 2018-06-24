@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import styled from 'styled-components';
 import mexp from 'math-expression-evaluator';
 
@@ -25,7 +25,8 @@ const Value = styled.div`
 class App extends Component {
   state = {
     income: 90000,
-    parsedIncome: 90000
+    parsedIncome: 90000,
+    rememberedFortnightlyAfterTax: null
   };
 
   calculateTax() {
@@ -51,7 +52,10 @@ class App extends Component {
   }
 
   handleIncomeChange = evt => {
-    const newIncome = evt.target.value;
+    this.parseAndSetIncome(evt.target.value);
+  };
+
+  parseAndSetIncome = newIncome => {
     let parsedIncome;
     try {
       parsedIncome = mexp.eval(newIncome);
@@ -68,6 +72,17 @@ class App extends Component {
     });
   };
 
+  handleRemember = () => {
+    this.setState(prevState => ({
+      rememberedFortnightlyAfterTax:
+        (prevState.parsedIncome - this.calculateTax()) / 26
+    }));
+  };
+
+  handleIncomeTemplate = template => () => {
+    this.parseAndSetIncome(template);
+  };
+
   formatCurrency(amount) {
     return Number(amount).toLocaleString(
       'en-AU',
@@ -79,10 +94,50 @@ class App extends Component {
   }
 
   render() {
-    const { income, parsedIncome } = this.state;
+    const { income, parsedIncome, rememberedFortnightlyAfterTax } = this.state;
+    const annualAfterTax = parsedIncome - this.calculateTax();
     return (
       <Container>
         <div>
+          <h1>Quick Tax Calc</h1>
+          <p>
+            This is a quick calculator for the{' '}
+            <a href="https://www.ato.gov.au/Rates/Individual-income-tax-rates/">
+              ATO Australian Individual Tax Rates
+            </a>
+          </p>
+          <p>
+            Type your annual pre-tax amount in the income section and see your
+            after tax annual and fortnightly amounts.
+          </p>
+          <p>
+            You can use the memory button to remember a given fortnightly amount
+            for comparison.
+          </p>
+          <p>
+            The income section also allows for formulae so you can do things
+            like:
+          </p>
+          <ul>
+            <li>
+              How might a 10% raise affect my income?
+              <button onClick={this.handleIncomeTemplate(`90000 * 1.1`)}>
+                Try it
+              </button>
+            </li>
+            <li>
+              What if I get an extra job paying 500 a week?
+              <button onClick={this.handleIncomeTemplate(`90000 + 500 * 52`)}>
+                Try it
+              </button>
+            </li>
+            <li>
+              If I go 3 days a week, how much will I get paid?
+              <button onClick={this.handleIncomeTemplate(`90000 * 3 / 5`)}>
+                Try it
+              </button>
+            </li>
+          </ul>
           <Row style={{ marginBottom: '2rem' }}>
             <Label>Income:</Label>{' '}
             <Value>
@@ -110,25 +165,42 @@ class App extends Component {
             <Value>{this.formatCurrency(this.calculateTax())}</Value>
           </Row>
           <Row style={{ marginBottom: '2rem' }}>
-            <Label>Annual Less Tax:</Label>{' '}
-            <Value>
-              {this.formatCurrency(parsedIncome - this.calculateTax())}
-            </Value>
+            <Label>Annual Less Tax:</Label>
+            <Value>{this.formatCurrency(annualAfterTax)}</Value>
           </Row>
           <Row>
-            <Label>Fortnightly:</Label>{' '}
+            <Label>Fortnightly:</Label>
             <Value>{this.formatCurrency(parsedIncome / 26)}</Value>
           </Row>
           <Row>
-            <Label>Fortnightly Tax:</Label>{' '}
+            <Label>Fortnightly Tax:</Label>
             <Value>{this.formatCurrency(this.calculateTax() / 26)}</Value>
           </Row>
           <Row style={{ marginTop: '2rem' }}>
-            <Label>Fortnightly Less Tax:</Label>{' '}
-            <Value style={{ fontSize: '1.5em' }}>
-              {this.formatCurrency((parsedIncome - this.calculateTax()) / 26)}
+            <Label>Fortnightly Less Tax:</Label>
+            <Value style={{ fontSize: '1.5em', marginRight: '-1.1em' }}>
+              {this.formatCurrency(annualAfterTax / 26)}
+              <button onClick={this.handleRemember}>M</button>
             </Value>
           </Row>
+          {rememberedFortnightlyAfterTax ? (
+            <Fragment>
+              <Row>
+                <Label>Remembered:</Label>
+                <Value style={{ fontSize: '1.5em', lineHeight: '1.5em' }}>
+                  {this.formatCurrency(rememberedFortnightlyAfterTax)}
+                </Value>
+              </Row>
+              <Row>
+                <Label>Difference:</Label>
+                <Value style={{ fontSize: '1.5em' }}>
+                  {this.formatCurrency(
+                    annualAfterTax / 26 - rememberedFortnightlyAfterTax
+                  )}
+                </Value>
+              </Row>
+            </Fragment>
+          ) : null}
         </div>
       </Container>
     );
