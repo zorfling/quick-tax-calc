@@ -128,19 +128,19 @@ class App extends Component {
           </p>
           <ul>
             <li>
-              How might a 10% raise affect my income?
+              How might a 10% raise affect my income?{' '}
               <button onClick={this.handleIncomeTemplate(`90000 * 1.1`)}>
                 Try it
               </button>
             </li>
             <li>
-              What if I get an extra job paying 500 a week?
+              What if I get an extra job paying 500 a week?{' '}
               <button onClick={this.handleIncomeTemplate(`90000 + 500 * 52`)}>
                 Try it
               </button>
             </li>
             <li>
-              If I go 3 days a week, how much will I get paid?
+              If I go 3 days a week, how much will I get paid?{' '}
               <button onClick={this.handleIncomeTemplate(`90000 * 3 / 5`)}>
                 Try it
               </button>
