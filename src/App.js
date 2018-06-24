@@ -80,6 +80,9 @@ class App extends Component {
   };
 
   handleIncomeTemplate = template => () => {
+    if (!this.state.rememberedFortnightlyAfterTax) {
+      this.handleRemember();
+    }
     this.parseAndSetIncome(template);
   };
 
