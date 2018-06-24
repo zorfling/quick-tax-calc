@@ -16,6 +16,10 @@ The income section also allows for formulae so you can do things like:
 
 `yarn start`
 
+## Demo
+
+Try it out at https://quick-tax-calc.netlify.com/
+
 ## Roadmap
 
 I might add the ability to work backwards - I want to earn 3000 a fortnight, how much do I need to earn?
