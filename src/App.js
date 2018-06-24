@@ -5,9 +5,14 @@ import mexp from 'math-expression-evaluator';
 const Container = styled.div`
   align-items: center;
   display: flex;
-  height: 100vh;
+  min-height: 100vh;
   justify-content: center;
   line-height: 150%;
+`;
+
+const Card = styled.div`
+  box-shadow: 0px 2px 6px 2px hsl(0, 0%, 0%, 0.2);
+  padding: 1rem 3rem;
 `;
 
 const Row = styled.div`
@@ -101,7 +106,7 @@ class App extends Component {
     const annualAfterTax = parsedIncome - this.calculateTax();
     return (
       <Container>
-        <div>
+        <Card>
           <h1>Quick Tax Calc</h1>
           <p>
             This is a quick calculator for the{' '}
@@ -141,7 +146,7 @@ class App extends Component {
               </button>
             </li>
           </ul>
-          <Row style={{ marginBottom: '2rem' }}>
+          <Row style={{ margin: '2rem 0' }}>
             <Label>Income:</Label>{' '}
             <Value>
               <input
@@ -151,7 +156,7 @@ class App extends Component {
                 style={{
                   fontSize: '1.4em',
                   textAlign: 'right',
-                  border: 'none'
+                  border: '1px solid #ccc'
                 }}
               />
               <small style={{ display: 'block', textAlign: 'right' }}>
@@ -209,7 +214,7 @@ class App extends Component {
               Check out the code on GitHub
             </a>
           </p>
-        </div>
+        </Card>
       </Container>
     );
   }
