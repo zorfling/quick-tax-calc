@@ -201,6 +201,11 @@ class App extends Component {
               </Row>
             </Fragment>
           ) : null}
+          <p style={{ marginTop: '2rem', textAlign: 'center' }}>
+            <a href="https://github.com/zorfling/quick-tax-calc">
+              Check out the code on GitHub
+            </a>
+          </p>
         </div>
       </Container>
     );
