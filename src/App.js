@@ -146,69 +146,86 @@ class App extends Component {
               </button>
             </li>
           </ul>
-          <Row style={{ margin: '2rem 0' }}>
-            <Label>Income:</Label>{' '}
-            <Value>
-              <input
-                type="text"
-                value={income}
-                onChange={this.handleIncomeChange}
-                style={{
-                  fontSize: '1.4em',
-                  textAlign: 'right',
-                  border: '1px solid #ccc'
-                }}
-              />
-              <small style={{ display: 'block', textAlign: 'right' }}>
-                Accepts formulas - eg 90000 * 1.1
-              </small>
-            </Value>
-          </Row>
-          <Row>
-            <Label>Income:</Label>
-            <Value>{this.formatCurrency(parsedIncome)}</Value>
-          </Row>
-          <Row>
-            <Label>Tax:</Label>
-            <Value>{this.formatCurrency(this.calculateTax())}</Value>
-          </Row>
-          <Row style={{ marginBottom: '2rem' }}>
-            <Label>Annual Less Tax:</Label>
-            <Value>{this.formatCurrency(annualAfterTax)}</Value>
-          </Row>
-          <Row>
-            <Label>Fortnightly:</Label>
-            <Value>{this.formatCurrency(parsedIncome / 26)}</Value>
-          </Row>
-          <Row>
-            <Label>Fortnightly Tax:</Label>
-            <Value>{this.formatCurrency(this.calculateTax() / 26)}</Value>
-          </Row>
-          <Row style={{ marginTop: '2rem' }}>
-            <Label>Fortnightly Less Tax:</Label>
-            <Value style={{ fontSize: '1.5em', marginRight: '-1.1em' }}>
-              {this.formatCurrency(annualAfterTax / 26)}
-              <button onClick={this.handleRemember}>M</button>
-            </Value>
-          </Row>
-          {rememberedFortnightlyAfterTax ? (
-            <Fragment>
-              <Row>
-                <Label>Remembered:</Label>
-                <Value style={{ fontSize: '1.5em', lineHeight: '1.5em' }}>
-                  {this.formatCurrency(rememberedFortnightlyAfterTax)}
-                </Value>
-              </Row>
-              <Row>
-                <Label>Difference:</Label>
-                <Value style={{ fontSize: '1.5em' }}>
-                  {this.formatCurrency(
-                    annualAfterTax / 26 - rememberedFortnightlyAfterTax
-                  )}
-                </Value>
-              </Row>
-            </Fragment>
-          ) : null}
+          <div
+            style={{
+              backgroundColor: '#eee',
+              margin: '0 -3rem',
+              padding: '1rem 3rem 2rem'
+            }}
+          >
+            <Row style={{ margin: '1rem 0 2rem' }}>
+              <Label>Income:</Label>{' '}
+              <Value>
+                <input
+                  type="text"
+                  value={income}
+                  onChange={this.handleIncomeChange}
+                  style={{
+                    fontSize: '1.4em',
+                    textAlign: 'right',
+                    border: '1px solid #ccc'
+                  }}
+                />
+                <small style={{ display: 'block', textAlign: 'right' }}>
+                  Accepts formulas - eg 90000 * 1.1
+                </small>
+              </Value>
+            </Row>
+            <Row>
+              <Label>Income:</Label>
+              <Value>{this.formatCurrency(parsedIncome)}</Value>
+            </Row>
+            <Row>
+              <Label>Tax:</Label>
+              <Value>{this.formatCurrency(this.calculateTax())}</Value>
+            </Row>
+            <Row style={{ marginBottom: '2rem' }}>
+              <Label>Annual Less Tax:</Label>
+              <Value>{this.formatCurrency(annualAfterTax)}</Value>
+            </Row>
+            <Row>
+              <Label>Fortnightly:</Label>
+              <Value>{this.formatCurrency(parsedIncome / 26)}</Value>
+            </Row>
+            <Row>
+              <Label>Fortnightly Tax:</Label>
+              <Value>{this.formatCurrency(this.calculateTax() / 26)}</Value>
+            </Row>
+            <Row style={{ marginTop: '2rem' }}>
+              <Label>Fortnightly Less Tax:</Label>
+              <Value style={{ fontSize: '1.5em', marginRight: '-2.1rem' }}>
+                {this.formatCurrency(annualAfterTax / 26)}
+                <button
+                  onClick={this.handleRemember}
+                  style={{
+                    height: '1.5rem',
+                    verticalAlign: 'bottom',
+                    marginLeft: '0.5rem'
+                  }}
+                >
+                  M
+                </button>
+              </Value>
+            </Row>
+            {rememberedFortnightlyAfterTax ? (
+              <Fragment>
+                <Row>
+                  <Label>Remembered:</Label>
+                  <Value style={{ fontSize: '1.5em', lineHeight: '1.5em' }}>
+                    {this.formatCurrency(rememberedFortnightlyAfterTax)}
+                  </Value>
+                </Row>
+                <Row>
+                  <Label>Difference:</Label>
+                  <Value style={{ fontSize: '1.5em' }}>
+                    {this.formatCurrency(
+                      annualAfterTax / 26 - rememberedFortnightlyAfterTax
+                    )}
+                  </Value>
+                </Row>
+              </Fragment>
+            ) : null}
+          </div>
           <p style={{ marginTop: '2rem', textAlign: 'center' }}>
             <a href="https://github.com/zorfling/quick-tax-calc">
               Check out the code on GitHub
