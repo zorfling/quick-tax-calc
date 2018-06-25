@@ -145,6 +145,23 @@ class App extends Component {
                 Try it
               </button>
             </li>
+            <li>
+              What contractor daily rate is{' '}
+              <span
+                style={{ textDecoration: 'underline' }}
+                title="4 weeks holiday, 2 weeks sick, 10 public holidays, 9.5% super"
+              >
+                comparable
+              </span>{' '}
+              with my full time salary?{' '}
+              <button
+                onClick={this.handleIncomeTemplate(
+                  `(448 * 5 * (52 - 4 - 2 - 2)) / 1.095`
+                )}
+              >
+                Try it
+              </button>
+            </li>
           </ul>
           <div
             style={{

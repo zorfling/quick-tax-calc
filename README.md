@@ -13,6 +13,7 @@ The income section also allows for formulae so you can do things like:
 - How might a 10% raise affect my income? - _90000 \* 1.1_
 - What if I get an extra job paying 500 a week? - _90000 + 500 \* 52_
 - If I go part time, how much will I get paid? - _90000 \* 3/5_
+- What contractor daily rate is comparable (4 weeks holiday, 2 weeks sick, 10 public holidays, 9.5% super) with my full time salary? - _(448 \* 5 \* (52 - 4 - 2 - 2)) / 1.095_
 
 ## Run instructions
 
