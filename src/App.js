@@ -119,8 +119,8 @@ class App extends Component {
             after tax annual and fortnightly amounts.
           </p>
           <p>
-            You can use the memory button to remember a given fortnightly amount
-            for comparison.
+            You can use the memory button (M) to remember a given fortnightly
+            amount for comparison.
           </p>
           <p>
             The income section also allows for formulae so you can do things
