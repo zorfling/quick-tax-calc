@@ -231,6 +231,9 @@ class App extends Component {
               Check out the code on GitHub
             </a>
           </p>
+          <p style={{ marginTop: '2rem', textAlign: 'center' }}>
+            <a href="https://chriscolborne.com">Built by @zorfling</a>
+          </p>
         </Card>
       </Container>
     );
