@@ -210,14 +210,22 @@ class App extends Component {
             {rememberedFortnightlyAfterTax ? (
               <Fragment>
                 <Row>
-                  <Label>Remembered:</Label>
+                  <Label style={{ lineHeight: '2.5em' }}>Remembered:</Label>
                   <Value style={{ fontSize: '1.5em', lineHeight: '1.5em' }}>
                     {this.formatCurrency(rememberedFortnightlyAfterTax)}
                   </Value>
                 </Row>
                 <Row>
-                  <Label>Difference:</Label>
-                  <Value style={{ fontSize: '1.5em' }}>
+                  <Label>Fortnightly Difference:</Label>
+                  <Value
+                    style={{
+                      fontSize: '1.5em',
+                      color:
+                        annualAfterTax / 26 - rememberedFortnightlyAfterTax < 0
+                          ? '#f00'
+                          : '#009e00'
+                    }}
+                  >
                     {this.formatCurrency(
                       annualAfterTax / 26 - rememberedFortnightlyAfterTax
                     )}

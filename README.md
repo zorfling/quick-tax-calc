@@ -6,7 +6,7 @@ This is a quick calculator for the [ATO Australian Individual Tax Rates 2017/201
 
 Type your annual pre-tax amount in the income section and see your after tax annual and fortnightly amounts.
 
-You can use the memory button to remember a given fortnightly amount for comparison.
+You can use the "Save and compare" button to remember a given fortnightly amount for comparison.
 
 The income section also allows for formulae so you can do things like:
 
