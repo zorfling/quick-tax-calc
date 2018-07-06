@@ -27,30 +27,97 @@ const Value = styled.div`
   margin-left: auto;
 `;
 
+const taxTables = {
+  2018: {
+    top: {
+      min: 180000,
+      offset: 54232,
+      rate: 0.45
+    },
+    upperMiddle: {
+      min: 87000,
+      offset: 19822,
+      rate: 0.37
+    },
+    lowerMiddle: {
+      min: 37000,
+      offset: 3572,
+      rate: 0.325
+    },
+    bottom: {
+      min: 18200,
+      offset: 0,
+      rate: 0.19
+    }
+  },
+  2019: {
+    top: {
+      min: 180000,
+      offset: 54097,
+      rate: 0.45
+    },
+    upperMiddle: {
+      min: 90000,
+      offset: 20797,
+      rate: 0.37
+    },
+    lowerMiddle: {
+      min: 37000,
+      offset: 3572,
+      rate: 0.325
+    },
+    bottom: {
+      min: 18200,
+      offset: 0,
+      rate: 0.19
+    }
+  }
+};
+
 class App extends Component {
   state = {
     income: 90000,
     parsedIncome: 90000,
-    rememberedFortnightlyAfterTax: null
+    rememberedFortnightlyAfterTax: null,
+    taxYearEnding: 2019
   };
 
   calculateTax() {
-    const { parsedIncome } = this.state;
+    const { parsedIncome, taxYearEnding } = this.state;
+    const taxTable = taxTables[taxYearEnding];
 
-    if (parsedIncome > 180000) {
-      return 54232 + (parsedIncome - 180000) * 0.45;
+    if (parsedIncome > taxTable.top.min) {
+      return (
+        taxTable.top.offset +
+        (parsedIncome - taxTable.top.min) * taxTable.top.rate
+      );
     }
 
-    if (parsedIncome > 87000 && parsedIncome < 180001) {
-      return 19822 + (parsedIncome - 87000) * 0.37;
+    if (
+      parsedIncome > taxTable.upperMiddle.min &&
+      parsedIncome < taxTable.top.min + 1
+    ) {
+      return (
+        taxTable.upperMiddle.offset +
+        (parsedIncome - taxTable.upperMiddle.min) * taxTable.upperMiddle.rate
+      );
     }
 
-    if (parsedIncome > 37000 && parsedIncome < 87001) {
-      return 3572 + (parsedIncome - 37000) * 0.325;
+    if (
+      parsedIncome > taxTable.lowerMiddle.min &&
+      parsedIncome < taxTable.upperMiddle.min + 1
+    ) {
+      return (
+        taxTable.lowerMiddle.offset +
+        (parsedIncome - taxTable.lowerMiddle.min) * taxTable.lowerMiddle.rate
+      );
     }
 
-    if (parsedIncome > 18200 && parsedIncome < 37001) {
-      return (parsedIncome - 18200) * 0.19;
+    if (
+      parsedIncome > taxTable.bottom.min &&
+      parsedIncome < taxTable.lowerMiddle.min + 1
+    ) {
+      return (parsedIncome - taxTable.bottom.min) * taxTable.bottom.rate;
     }
 
     return 0;
@@ -58,6 +125,12 @@ class App extends Component {
 
   handleIncomeChange = evt => {
     this.parseAndSetIncome(evt.target.value);
+  };
+
+  handleYearChange = evt => {
+    this.setState({
+      taxYearEnding: Number.parseInt(evt.target.value, 10)
+    });
   };
 
   parseAndSetIncome = newIncome => {
@@ -102,7 +175,12 @@ class App extends Component {
   }
 
   render() {
-    const { income, parsedIncome, rememberedFortnightlyAfterTax } = this.state;
+    const {
+      income,
+      parsedIncome,
+      rememberedFortnightlyAfterTax,
+      taxYearEnding
+    } = this.state;
     const annualAfterTax = parsedIncome - this.calculateTax();
     return (
       <Container>
@@ -170,6 +248,25 @@ class App extends Component {
               padding: '1rem 3rem 2rem'
             }}
           >
+            <Row>
+              <Label>Tax Year:</Label>
+              <Value>
+                {Object.keys(taxTables).map(yearEnding => (
+                  <label key={yearEnding}>
+                    <input
+                      type="radio"
+                      value={yearEnding}
+                      checked={
+                        Number.parseInt(taxYearEnding, 10) ===
+                        Number.parseInt(yearEnding, 10)
+                      }
+                      onChange={this.handleYearChange}
+                    />
+                    {`${yearEnding - 1} / ${yearEnding}`}{' '}
+                  </label>
+                ))}
+              </Value>
+            </Row>
             <Row style={{ margin: '1rem 0 2rem' }}>
               <Label>Income:</Label>{' '}
               <Value>
