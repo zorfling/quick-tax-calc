@@ -135,17 +135,18 @@ class App extends Component {
 
   parseAndSetIncome = newIncome => {
     let parsedIncome;
+    const cleanIncome = newIncome.replace(/[$,]*/g, '');
     try {
-      parsedIncome = mexp.eval(newIncome);
+      parsedIncome = mexp.eval(cleanIncome);
     } catch (e) {
       this.setState({
-        income: newIncome
+        income: cleanIncome
       });
       return;
     }
 
     this.setState({
-      income: newIncome,
+      income: cleanIncome,
       parsedIncome
     });
   };
@@ -165,13 +166,10 @@ class App extends Component {
   };
 
   formatCurrency(amount) {
-    return Number(amount).toLocaleString(
-      'en-AU',
-      {
-        currency: 'AUD',
-        style: 'currency'
-      }
-    );
+    return Number(amount).toLocaleString('en-AU', {
+      currency: 'AUD',
+      style: 'currency'
+    });
   }
 
   render() {
