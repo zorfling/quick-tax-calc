@@ -71,6 +71,28 @@ const taxTables = {
       offset: 0,
       rate: 0.19
     }
+  },
+  2020: {
+    top: {
+      min: 180000,
+      offset: 54097,
+      rate: 0.45
+    },
+    upperMiddle: {
+      min: 90000,
+      offset: 20797,
+      rate: 0.37
+    },
+    lowerMiddle: {
+      min: 37000,
+      offset: 3572,
+      rate: 0.325
+    },
+    bottom: {
+      min: 18200,
+      offset: 0,
+      rate: 0.19
+    }
   }
 };
 
@@ -79,7 +101,7 @@ class App extends Component {
     income: 90000,
     parsedIncome: 90000,
     rememberedFortnightlyAfterTax: null,
-    taxYearEnding: 2019
+    taxYearEnding: 2020
   };
 
   calculateTax() {

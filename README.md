@@ -1,6 +1,6 @@
 # Quick Tax Calc
 
-This is a quick calculator for the [ATO Australian Individual Tax Rates 2017/2018](https://www.ato.gov.au/Rates/Individual-income-tax-rates/).
+This is a quick calculator for the [ATO Australian Individual Tax Rates](https://www.ato.gov.au/Rates/Individual-income-tax-rates/).
 
 ## Usage
 
