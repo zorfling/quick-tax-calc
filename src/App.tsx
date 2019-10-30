@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component, Fragment, ChangeEvent } from 'react';
 import styled from 'styled-components';
 import mexp from 'math-expression-evaluator';
 
@@ -27,7 +27,20 @@ const Value = styled.div`
   margin-left: auto;
 `;
 
-const taxTables = {
+interface TaxBracket {
+  min: number;
+  offset: number;
+  rate: number;
+}
+
+interface TaxTable {
+  top: TaxBracket;
+  upperMiddle: TaxBracket;
+  lowerMiddle: TaxBracket;
+  bottom: TaxBracket;
+}
+
+const taxTables: { [key: number]: TaxTable } = {
   2018: {
     top: {
       min: 180000,
@@ -96,11 +109,18 @@ const taxTables = {
   }
 };
 
-class App extends Component {
+interface AppState {
+  income: string;
+  parsedIncome: number;
+  rememberedFortnightlyAfterTax: number;
+  taxYearEnding: number;
+}
+
+class App extends Component<{}, AppState> {
   state = {
-    income: 90000,
+    income: '90000',
     parsedIncome: 90000,
-    rememberedFortnightlyAfterTax: null,
+    rememberedFortnightlyAfterTax: -1,
     taxYearEnding: 2020
   };
 
@@ -145,21 +165,21 @@ class App extends Component {
     return 0;
   }
 
-  handleIncomeChange = evt => {
+  handleIncomeChange = (evt: ChangeEvent<HTMLInputElement>) => {
     this.parseAndSetIncome(evt.target.value);
   };
 
-  handleYearChange = evt => {
+  handleYearChange = (evt: ChangeEvent<HTMLInputElement>) => {
     this.setState({
       taxYearEnding: Number.parseInt(evt.target.value, 10)
     });
   };
 
-  parseAndSetIncome = newIncome => {
+  parseAndSetIncome = (newIncome: string) => {
     let parsedIncome;
     const cleanIncome = newIncome.replace(/[$,]*/g, '');
     try {
-      parsedIncome = mexp.eval(cleanIncome);
+      parsedIncome = Number.parseFloat(mexp.eval(cleanIncome));
     } catch (e) {
       this.setState({
         income: cleanIncome
@@ -180,14 +200,14 @@ class App extends Component {
     }));
   };
 
-  handleIncomeTemplate = template => () => {
-    if (!this.state.rememberedFortnightlyAfterTax) {
+  handleIncomeTemplate = (template: string) => () => {
+    if (this.state.rememberedFortnightlyAfterTax < 0) {
       this.handleRemember();
     }
     this.parseAndSetIncome(template);
   };
 
-  formatCurrency(amount) {
+  formatCurrency(amount: number) {
     return Number(amount).toLocaleString('en-AU', {
       currency: 'AUD',
       style: 'currency'
@@ -277,12 +297,13 @@ class App extends Component {
                       type="radio"
                       value={yearEnding}
                       checked={
-                        Number.parseInt(taxYearEnding, 10) ===
-                        Number.parseInt(yearEnding, 10)
+                        taxYearEnding === Number.parseInt(yearEnding, 10)
                       }
                       onChange={this.handleYearChange}
                     />
-                    {`${yearEnding - 1} / ${yearEnding}`}{' '}
+                    {`${Number.parseInt(yearEnding) - 1} / ${Number.parseInt(
+                      yearEnding
+                    )}`}
                   </label>
                 ))}
               </Value>
@@ -341,7 +362,7 @@ class App extends Component {
                 </button>
               </Value>
             </Row>
-            {rememberedFortnightlyAfterTax ? (
+            {rememberedFortnightlyAfterTax >= 0 ? (
               <Fragment>
                 <Row>
                   <Label style={{ lineHeight: '2.5em' }}>Remembered:</Label>

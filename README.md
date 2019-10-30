@@ -17,7 +17,7 @@ The income section also allows for formulae so you can do things like:
 
 ## Run instructions
 
-`yarn start`
+`npm start`
 
 ## Demo
 
