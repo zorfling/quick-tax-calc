@@ -23,6 +23,10 @@ const Label = styled.div`
   font-weight: bold;
 `;
 
+const FormLabel = styled.label`
+  font-weight: bold;
+`;
+
 const Value = styled.div`
   margin-left: auto;
 `;
@@ -259,7 +263,10 @@ class App extends Component<{}, AppState> {
             </li>
             <li>
               If I go 3 days a week, how much will I get paid?{' '}
-              <button onClick={this.handleIncomeTemplate(`90000 * 3 / 5`)}>
+              <button
+                onClick={this.handleIncomeTemplate(`90000 * 3 / 5`)}
+                data-testid="template-part-time"
+              >
                 Try it
               </button>
             </li>
@@ -273,6 +280,7 @@ class App extends Component<{}, AppState> {
               </span>{' '}
               with my full time salary?{' '}
               <button
+                data-testid="template-contractor"
                 onClick={this.handleIncomeTemplate(
                   `(448 * 5 * (52 - 4 - 2 - 2)) / 1.095`
                 )}
@@ -303,15 +311,16 @@ class App extends Component<{}, AppState> {
                     />
                     {`${Number.parseInt(yearEnding) - 1} / ${Number.parseInt(
                       yearEnding
-                    )}`}
+                    )}`}{' '}
                   </label>
                 ))}
               </Value>
             </Row>
             <Row style={{ margin: '1rem 0 2rem' }}>
-              <Label>Income:</Label>{' '}
+              <FormLabel htmlFor="income">Income:</FormLabel>
               <Value>
                 <input
+                  id="income"
                   type="text"
                   value={income}
                   onChange={this.handleIncomeChange}
@@ -320,6 +329,7 @@ class App extends Component<{}, AppState> {
                     textAlign: 'right',
                     border: '1px solid #ccc'
                   }}
+                  data-testid="income"
                 />
                 <small style={{ display: 'block', textAlign: 'right' }}>
                   Accepts formulas - eg 90000 * 1.1
@@ -348,7 +358,10 @@ class App extends Component<{}, AppState> {
             </Row>
             <Row style={{ marginTop: '2rem' }}>
               <Label>Fortnightly Less Tax:</Label>
-              <Value style={{ fontSize: '1.5em', marginRight: '-2.1rem' }}>
+              <Value
+                style={{ fontSize: '1.5em', marginRight: '-2.1rem' }}
+                data-testid="fortnightly-less-tax"
+              >
                 {this.formatCurrency(annualAfterTax / 26)}
                 <button
                   onClick={this.handleRemember}
