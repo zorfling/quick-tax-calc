@@ -11,8 +11,22 @@ const Container = styled.div`
 `;
 
 const Card = styled.div`
+  display: flex;
+  flex-direction: column;
   box-shadow: 0px 2px 6px 2px hsl(0, 0%, 0%, 0.2);
   padding: 1rem 3rem;
+
+  @media screen and (max-width: 575px) {
+    > p,
+    > ul,
+    > h2 {
+      order: 1;
+    }
+
+    p:nth-of-type(1) {
+      order: 0;
+    }
+  }
 `;
 
 const Row = styled.div`
@@ -237,6 +251,7 @@ class App extends Component<{}, AppState> {
               ATO Australian Individual Tax Rates
             </a>
           </p>
+          <h2 style={{ marginBottom: 0 }}>How to use</h2>
           <p>
             Type your annual pre-tax amount in the income section and see your
             after tax annual and fortnightly amounts.
