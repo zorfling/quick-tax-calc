@@ -17,6 +17,7 @@ const Card = styled.div`
 
 const Row = styled.div`
   display: flex;
+  justify-content: space-between;
 `;
 
 const Label = styled.div`
@@ -28,7 +29,7 @@ const FormLabel = styled.label`
 `;
 
 const Value = styled.div`
-  margin-left: auto;
+  margin-right: 2.1rem;
 `;
 
 interface TaxBracket {
@@ -293,7 +294,7 @@ class App extends Component<{}, AppState> {
             style={{
               backgroundColor: '#eee',
               margin: '0 -3rem',
-              padding: '1rem 3rem 2rem'
+              padding: '1rem 0.9rem 2rem 3rem'
             }}
           >
             <Row>
@@ -327,7 +328,8 @@ class App extends Component<{}, AppState> {
                   style={{
                     fontSize: '1.4em',
                     textAlign: 'right',
-                    border: '1px solid #ccc'
+                    border: '1px solid #ccc',
+                    maxWidth: '215px'
                   }}
                   data-testid="income"
                 />
@@ -359,7 +361,10 @@ class App extends Component<{}, AppState> {
             <Row style={{ marginTop: '2rem' }}>
               <Label>Fortnightly Less Tax:</Label>
               <Value
-                style={{ fontSize: '1.5em', marginRight: '-2.1rem' }}
+                style={{
+                  fontSize: '1.5em',
+                  marginRight: 0
+                }}
                 data-testid="fortnightly-less-tax"
               >
                 {this.formatCurrency(annualAfterTax / 26)}
