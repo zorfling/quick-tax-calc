@@ -1,7 +1,7 @@
 import React, { Component, Fragment, ChangeEvent } from 'react';
 import styled from 'styled-components';
 import mexp from 'math-expression-evaluator';
-import calculateTax, { taxTables } from './calculateTax';
+import calculateTax from './calculateTax';
 
 const Container = styled.div`
   align-items: center;
@@ -51,30 +51,22 @@ interface AppState {
   income: string;
   parsedIncome: number;
   rememberedFortnightlyAfterTax: number;
-  taxYearEnding: number;
 }
 
 class App extends Component<{}, AppState> {
   state = {
     income: '90000',
     parsedIncome: 90000,
-    rememberedFortnightlyAfterTax: -1,
-    taxYearEnding: 2020
+    rememberedFortnightlyAfterTax: -1
   };
 
   calculateTax() {
-    const { parsedIncome, taxYearEnding } = this.state;
-    return calculateTax(parsedIncome, taxYearEnding);
+    const { parsedIncome } = this.state;
+    return calculateTax(parsedIncome);
   }
 
   handleIncomeChange = (evt: ChangeEvent<HTMLInputElement>) => {
     this.parseAndSetIncome(evt.target.value);
-  };
-
-  handleYearChange = (evt: ChangeEvent<HTMLInputElement>) => {
-    this.setState({
-      taxYearEnding: Number.parseInt(evt.target.value, 10)
-    });
   };
 
   parseAndSetIncome = (newIncome: string) => {
@@ -117,12 +109,7 @@ class App extends Component<{}, AppState> {
   }
 
   render() {
-    const {
-      income,
-      parsedIncome,
-      rememberedFortnightlyAfterTax,
-      taxYearEnding
-    } = this.state;
+    const { income, parsedIncome, rememberedFortnightlyAfterTax } = this.state;
     const annualAfterTax = parsedIncome - this.calculateTax();
     return (
       <Container>
@@ -195,26 +182,6 @@ class App extends Component<{}, AppState> {
               padding: '1rem 0.9rem 2rem 3rem'
             }}
           >
-            <Row>
-              <Label>Tax Year:</Label>
-              <Value>
-                {Object.keys(taxTables).map(yearEnding => (
-                  <label key={yearEnding}>
-                    <input
-                      type="radio"
-                      value={yearEnding}
-                      checked={
-                        taxYearEnding === Number.parseInt(yearEnding, 10)
-                      }
-                      onChange={this.handleYearChange}
-                    />
-                    {`${Number.parseInt(yearEnding) - 1} / ${Number.parseInt(
-                      yearEnding
-                    )}`}{' '}
-                  </label>
-                ))}
-              </Value>
-            </Row>
             <Row style={{ margin: '1rem 0 2rem' }}>
               <FormLabel htmlFor="income">Income:</FormLabel>
               <Value>
@@ -263,9 +230,10 @@ class App extends Component<{}, AppState> {
                   fontSize: '1.5em',
                   marginRight: 0
                 }}
-                data-testid="fortnightly-less-tax"
               >
-                {this.formatCurrency(annualAfterTax / 26)}
+                <span data-testid="fortnightly-less-tax">
+                  {this.formatCurrency(annualAfterTax / 26)}
+                </span>
                 <button
                   onClick={this.handleRemember}
                   style={{

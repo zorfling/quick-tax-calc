@@ -85,44 +85,6 @@ Object {
           >
             <div
               class="sc-htpNat hqmgw"
-            >
-              <div
-                class="sc-bxivhb kKGLjl"
-              >
-                Tax Year:
-              </div>
-              <div
-                class="sc-EHOje lclkHR"
-              >
-                <label>
-                  <input
-                    type="radio"
-                    value="2018"
-                  />
-                  2017 / 2018
-                   
-                </label>
-                <label>
-                  <input
-                    type="radio"
-                    value="2019"
-                  />
-                  2018 / 2019
-                   
-                </label>
-                <label>
-                  <input
-                    checked=""
-                    type="radio"
-                    value="2020"
-                  />
-                  2019 / 2020
-                   
-                </label>
-              </div>
-            </div>
-            <div
-              class="sc-htpNat hqmgw"
               style="margin: 1rem 0px 2rem;"
             >
               <label
@@ -173,7 +135,7 @@ Object {
               <div
                 class="sc-EHOje lclkHR"
               >
-                A$20,797.00
+                A$22,620.00
               </div>
             </div>
             <div
@@ -188,7 +150,7 @@ Object {
               <div
                 class="sc-EHOje lclkHR"
               >
-                A$69,203.00
+                A$67,380.00
               </div>
             </div>
             <div
@@ -216,7 +178,7 @@ Object {
               <div
                 class="sc-EHOje lclkHR"
               >
-                A$799.88
+                A$870.00
               </div>
             </div>
             <div
@@ -230,10 +192,13 @@ Object {
               </div>
               <div
                 class="sc-EHOje lclkHR"
-                data-testid="fortnightly-less-tax"
                 style="font-size: 1.5em; margin-right: 0px;"
               >
-                A$2,661.65
+                <span
+                  data-testid="fortnightly-less-tax"
+                >
+                  A$2,591.54
+                </span>
                 <button
                   style="height: 1.5rem; vertical-align: bottom; margin-left: 0.5rem;"
                 >
@@ -345,44 +310,6 @@ Object {
         >
           <div
             class="sc-htpNat hqmgw"
-          >
-            <div
-              class="sc-bxivhb kKGLjl"
-            >
-              Tax Year:
-            </div>
-            <div
-              class="sc-EHOje lclkHR"
-            >
-              <label>
-                <input
-                  type="radio"
-                  value="2018"
-                />
-                2017 / 2018
-                 
-              </label>
-              <label>
-                <input
-                  type="radio"
-                  value="2019"
-                />
-                2018 / 2019
-                 
-              </label>
-              <label>
-                <input
-                  checked=""
-                  type="radio"
-                  value="2020"
-                />
-                2019 / 2020
-                 
-              </label>
-            </div>
-          </div>
-          <div
-            class="sc-htpNat hqmgw"
             style="margin: 1rem 0px 2rem;"
           >
             <label
@@ -433,7 +360,7 @@ Object {
             <div
               class="sc-EHOje lclkHR"
             >
-              A$20,797.00
+              A$22,620.00
             </div>
           </div>
           <div
@@ -448,7 +375,7 @@ Object {
             <div
               class="sc-EHOje lclkHR"
             >
-              A$69,203.00
+              A$67,380.00
             </div>
           </div>
           <div
@@ -476,7 +403,7 @@ Object {
             <div
               class="sc-EHOje lclkHR"
             >
-              A$799.88
+              A$870.00
             </div>
           </div>
           <div
@@ -490,10 +417,13 @@ Object {
             </div>
             <div
               class="sc-EHOje lclkHR"
-              data-testid="fortnightly-less-tax"
               style="font-size: 1.5em; margin-right: 0px;"
             >
-              A$2,661.65
+              <span
+                data-testid="fortnightly-less-tax"
+              >
+                A$2,591.54
+              </span>
               <button
                 style="height: 1.5rem; vertical-align: bottom; margin-left: 0.5rem;"
               >

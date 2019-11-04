@@ -9,11 +9,11 @@ describe('App', () => {
   });
 
   test.each([
-    ['90000', '$2,661.65'],
-    ['120000', '$3,388.58'],
-    ['20000', '$756.08'],
-    ['185000', '$4,948.19'],
-    ['18000', '$692.31']
+    ['18000', '$692.31'],
+    ['20000', '$757.23'],
+    ['90000', '$2,591.54'],
+    ['120000', '$3,295.38'],
+    ['185000', '$4,805.38']
   ])('calculates basic rates (%i)', (income, expected) => {
     const { getByTestId } = render(<App />);
     const incomeField = getByTestId('income');
@@ -31,14 +31,14 @@ describe('App', () => {
     const fortnightlyField = getByTestId('fortnightly-less-tax');
 
     expect(incomeField).toHaveValue('90000');
-    expect(fortnightlyField).toHaveTextContent('$2,661.65');
+    expect(fortnightlyField).toHaveTextContent('$2,591.54');
 
     fireEvent.click(contractorTemplateButton);
     expect(incomeField).toHaveValue('(448 * 5 * (52 - 4 - 2 - 2)) / 1.095');
-    expect(fortnightlyField).toHaveTextContent('$2,661.88');
+    expect(fortnightlyField).toHaveTextContent('$2,591.89');
 
     fireEvent.click(partTimeTemplateButton);
     expect(incomeField).toHaveValue('90000 * 3 / 5');
-    expect(fortnightlyField).toHaveTextContent('$1,727.04');
+    expect(fortnightlyField).toHaveTextContent('$1,684.92');
   });
 });

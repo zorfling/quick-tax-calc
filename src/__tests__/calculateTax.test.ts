@@ -1,11 +1,19 @@
 import calculateTax from '../calculateTax';
 test.each([
   [18000, 0],
-  [90000, 20797],
-  [120000, 31897],
-  [20000, 342],
-  [185000, 56347]
+  [20000, 312],
+  [90000, 22620],
+  [120000, 34320],
+  [185000, 60060]
 ])('calculates basic rates (%i)', (income, expected) => {
-  const result = calculateTax(income, 2020);
+  const result = calculateTax(income);
   expect(result).toBe(expected);
 });
+
+test.each([[955.98, 58], [4615.38, 1320], [692.31, 0]])(
+  'should calculate same as witholding excel (%i)',
+  (fortnightlyIncome, expected) => {
+    const annualResult = calculateTax(fortnightlyIncome * 26);
+    expect(annualResult / 26).toBe(expected);
+  }
+);
