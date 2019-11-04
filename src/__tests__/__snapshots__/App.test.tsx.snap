@@ -9,7 +9,7 @@ Object {
         class="sc-bdVaJa dsjtQI"
       >
         <div
-          class="sc-bwzfXH ibzRu"
+          class="sc-bwzfXH eRYMzF"
         >
           <h1>
             Quick Tax Calc
@@ -23,6 +23,11 @@ Object {
               ATO Australian Individual Tax Rates
             </a>
           </p>
+          <h2
+            style="margin-bottom: 0px;"
+          >
+            How to use
+          </h2>
           <p>
             Type your annual pre-tax amount in the income section and see your after tax annual and fortnightly amounts.
           </p>
@@ -76,10 +81,10 @@ Object {
             </li>
           </ul>
           <div
-            style="background-color: rgb(238, 238, 238); margin: 0px -3rem; padding: 1rem 3rem 2rem;"
+            style="background-color: rgb(238, 238, 238); margin: 0px -3rem; padding: 1rem 0.9rem 2rem 3rem;"
           >
             <div
-              class="sc-htpNat cixthU"
+              class="sc-htpNat hqmgw"
             >
               <div
                 class="sc-bxivhb kKGLjl"
@@ -87,7 +92,7 @@ Object {
                 Tax Year:
               </div>
               <div
-                class="sc-EHOje koTqFE"
+                class="sc-EHOje lclkHR"
               >
                 <label>
                   <input
@@ -117,7 +122,7 @@ Object {
               </div>
             </div>
             <div
-              class="sc-htpNat cixthU"
+              class="sc-htpNat hqmgw"
               style="margin: 1rem 0px 2rem;"
             >
               <label
@@ -127,12 +132,12 @@ Object {
                 Income:
               </label>
               <div
-                class="sc-EHOje koTqFE"
+                class="sc-EHOje lclkHR"
               >
                 <input
                   data-testid="income"
                   id="income"
-                  style="font-size: 1.4em; text-align: right; border: 1px solid #ccc;"
+                  style="font-size: 1.4em; text-align: right; border: 1px solid #ccc; max-width: 215px;"
                   type="text"
                   value="90000"
                 />
@@ -144,7 +149,7 @@ Object {
               </div>
             </div>
             <div
-              class="sc-htpNat cixthU"
+              class="sc-htpNat hqmgw"
             >
               <div
                 class="sc-bxivhb kKGLjl"
@@ -152,13 +157,13 @@ Object {
                 Income:
               </div>
               <div
-                class="sc-EHOje koTqFE"
+                class="sc-EHOje lclkHR"
               >
                 A$90,000.00
               </div>
             </div>
             <div
-              class="sc-htpNat cixthU"
+              class="sc-htpNat hqmgw"
             >
               <div
                 class="sc-bxivhb kKGLjl"
@@ -166,13 +171,13 @@ Object {
                 Tax:
               </div>
               <div
-                class="sc-EHOje koTqFE"
+                class="sc-EHOje lclkHR"
               >
                 A$20,797.00
               </div>
             </div>
             <div
-              class="sc-htpNat cixthU"
+              class="sc-htpNat hqmgw"
               style="margin-bottom: 2rem;"
             >
               <div
@@ -181,13 +186,13 @@ Object {
                 Annual Less Tax:
               </div>
               <div
-                class="sc-EHOje koTqFE"
+                class="sc-EHOje lclkHR"
               >
                 A$69,203.00
               </div>
             </div>
             <div
-              class="sc-htpNat cixthU"
+              class="sc-htpNat hqmgw"
             >
               <div
                 class="sc-bxivhb kKGLjl"
@@ -195,13 +200,13 @@ Object {
                 Fortnightly:
               </div>
               <div
-                class="sc-EHOje koTqFE"
+                class="sc-EHOje lclkHR"
               >
                 A$3,461.54
               </div>
             </div>
             <div
-              class="sc-htpNat cixthU"
+              class="sc-htpNat hqmgw"
             >
               <div
                 class="sc-bxivhb kKGLjl"
@@ -209,13 +214,13 @@ Object {
                 Fortnightly Tax:
               </div>
               <div
-                class="sc-EHOje koTqFE"
+                class="sc-EHOje lclkHR"
               >
                 A$799.88
               </div>
             </div>
             <div
-              class="sc-htpNat cixthU"
+              class="sc-htpNat hqmgw"
               style="margin-top: 2rem;"
             >
               <div
@@ -224,9 +229,9 @@ Object {
                 Fortnightly Less Tax:
               </div>
               <div
-                class="sc-EHOje koTqFE"
+                class="sc-EHOje lclkHR"
                 data-testid="fortnightly-less-tax"
-                style="font-size: 1.5em; margin-right: -2.1rem;"
+                style="font-size: 1.5em; margin-right: 0px;"
               >
                 A$2,661.65
                 <button
@@ -264,7 +269,7 @@ Object {
       class="sc-bdVaJa dsjtQI"
     >
       <div
-        class="sc-bwzfXH ibzRu"
+        class="sc-bwzfXH eRYMzF"
       >
         <h1>
           Quick Tax Calc
@@ -278,6 +283,11 @@ Object {
             ATO Australian Individual Tax Rates
           </a>
         </p>
+        <h2
+          style="margin-bottom: 0px;"
+        >
+          How to use
+        </h2>
         <p>
           Type your annual pre-tax amount in the income section and see your after tax annual and fortnightly amounts.
         </p>
@@ -331,10 +341,10 @@ Object {
           </li>
         </ul>
         <div
-          style="background-color: rgb(238, 238, 238); margin: 0px -3rem; padding: 1rem 3rem 2rem;"
+          style="background-color: rgb(238, 238, 238); margin: 0px -3rem; padding: 1rem 0.9rem 2rem 3rem;"
         >
           <div
-            class="sc-htpNat cixthU"
+            class="sc-htpNat hqmgw"
           >
             <div
               class="sc-bxivhb kKGLjl"
@@ -342,7 +352,7 @@ Object {
               Tax Year:
             </div>
             <div
-              class="sc-EHOje koTqFE"
+              class="sc-EHOje lclkHR"
             >
               <label>
                 <input
@@ -372,7 +382,7 @@ Object {
             </div>
           </div>
           <div
-            class="sc-htpNat cixthU"
+            class="sc-htpNat hqmgw"
             style="margin: 1rem 0px 2rem;"
           >
             <label
@@ -382,12 +392,12 @@ Object {
               Income:
             </label>
             <div
-              class="sc-EHOje koTqFE"
+              class="sc-EHOje lclkHR"
             >
               <input
                 data-testid="income"
                 id="income"
-                style="font-size: 1.4em; text-align: right; border: 1px solid #ccc;"
+                style="font-size: 1.4em; text-align: right; border: 1px solid #ccc; max-width: 215px;"
                 type="text"
                 value="90000"
               />
@@ -399,7 +409,7 @@ Object {
             </div>
           </div>
           <div
-            class="sc-htpNat cixthU"
+            class="sc-htpNat hqmgw"
           >
             <div
               class="sc-bxivhb kKGLjl"
@@ -407,13 +417,13 @@ Object {
               Income:
             </div>
             <div
-              class="sc-EHOje koTqFE"
+              class="sc-EHOje lclkHR"
             >
               A$90,000.00
             </div>
           </div>
           <div
-            class="sc-htpNat cixthU"
+            class="sc-htpNat hqmgw"
           >
             <div
               class="sc-bxivhb kKGLjl"
@@ -421,13 +431,13 @@ Object {
               Tax:
             </div>
             <div
-              class="sc-EHOje koTqFE"
+              class="sc-EHOje lclkHR"
             >
               A$20,797.00
             </div>
           </div>
           <div
-            class="sc-htpNat cixthU"
+            class="sc-htpNat hqmgw"
             style="margin-bottom: 2rem;"
           >
             <div
@@ -436,13 +446,13 @@ Object {
               Annual Less Tax:
             </div>
             <div
-              class="sc-EHOje koTqFE"
+              class="sc-EHOje lclkHR"
             >
               A$69,203.00
             </div>
           </div>
           <div
-            class="sc-htpNat cixthU"
+            class="sc-htpNat hqmgw"
           >
             <div
               class="sc-bxivhb kKGLjl"
@@ -450,13 +460,13 @@ Object {
               Fortnightly:
             </div>
             <div
-              class="sc-EHOje koTqFE"
+              class="sc-EHOje lclkHR"
             >
               A$3,461.54
             </div>
           </div>
           <div
-            class="sc-htpNat cixthU"
+            class="sc-htpNat hqmgw"
           >
             <div
               class="sc-bxivhb kKGLjl"
@@ -464,13 +474,13 @@ Object {
               Fortnightly Tax:
             </div>
             <div
-              class="sc-EHOje koTqFE"
+              class="sc-EHOje lclkHR"
             >
               A$799.88
             </div>
           </div>
           <div
-            class="sc-htpNat cixthU"
+            class="sc-htpNat hqmgw"
             style="margin-top: 2rem;"
           >
             <div
@@ -479,9 +489,9 @@ Object {
               Fortnightly Less Tax:
             </div>
             <div
-              class="sc-EHOje koTqFE"
+              class="sc-EHOje lclkHR"
               data-testid="fortnightly-less-tax"
-              style="font-size: 1.5em; margin-right: -2.1rem;"
+              style="font-size: 1.5em; margin-right: 0px;"
             >
               A$2,661.65
               <button
