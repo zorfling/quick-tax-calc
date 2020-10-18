@@ -1,7 +1,7 @@
 import React, { ChangeEvent, FC, useState, useCallback } from 'react';
 import styled from 'styled-components';
 import mexp from 'math-expression-evaluator';
-import calculateTax from './calculateTax';
+import calculateTax, { validYears } from './calculateTax';
 
 const Container = styled.div`
   align-items: center;
@@ -47,12 +47,6 @@ const Value = styled.div`
   margin-right: 2.1rem;
 `;
 
-interface AppState {
-  income: string;
-  parsedIncome: number;
-  rememberedFortnightlyAfterTax: number;
-}
-
 const formatCurrency = (amount: number) => {
   return Number(amount).toLocaleString('en-AU', {
     currency: 'AUD',
@@ -60,15 +54,23 @@ const formatCurrency = (amount: number) => {
   });
 };
 
-const App: FC = () => {
+interface Props {
+  taxYearEnding?: number;
+}
+
+const App: FC<Props> = ({ taxYearEnding: initialTaxYearEnding }) => {
   const [income, setIncome] = useState('90000');
   const [parsedIncome, setParsedIncome] = useState(90000);
   const [
     rememberedFortnightlyAfterTax,
     setRememberedFortnightlyAfterTax
   ] = useState(-1);
+  const [taxYearEnding, setTaxYearEnding] = useState(
+    initialTaxYearEnding || 2021
+  );
 
-  const annualAfterTax = parsedIncome - calculateTax(parsedIncome);
+  const annualAfterTax =
+    parsedIncome - calculateTax(parsedIncome, taxYearEnding);
 
   const parseAndSetIncome = (newIncome: string) => {
     let parsedIncome;
@@ -93,7 +95,7 @@ const App: FC = () => {
 
   const handleRemember = () => {
     setRememberedFortnightlyAfterTax(
-      (parsedIncome - calculateTax(parsedIncome)) / 26
+      (parsedIncome - calculateTax(parsedIncome, taxYearEnding)) / 26
     );
   };
 
@@ -174,6 +176,26 @@ const App: FC = () => {
             padding: '1rem 0.9rem 2rem 3rem'
           }}
         >
+          <Row>
+            <Label>Tax Year:</Label>
+            <Value>
+              {validYears.map((yearEnding) => (
+                <label key={yearEnding}>
+                  <input
+                    type="radio"
+                    value={yearEnding}
+                    checked={taxYearEnding === Number.parseInt(yearEnding, 10)}
+                    onChange={() =>
+                      setTaxYearEnding(Number.parseInt(yearEnding, 10))
+                    }
+                  />
+                  {`${Number.parseInt(yearEnding) - 1} / ${Number.parseInt(
+                    yearEnding
+                  )}`}{' '}
+                </label>
+              ))}
+            </Value>
+          </Row>
           <Row style={{ margin: '1rem 0 2rem' }}>
             <FormLabel htmlFor="income">Income:</FormLabel>
             <Value>
@@ -201,7 +223,9 @@ const App: FC = () => {
           </Row>
           <Row>
             <Label>Tax:</Label>
-            <Value>{formatCurrency(calculateTax(parsedIncome))}</Value>
+            <Value>
+              {formatCurrency(calculateTax(parsedIncome, taxYearEnding))}
+            </Value>
           </Row>
           <Row style={{ marginBottom: '2rem' }}>
             <Label>Annual Less Tax:</Label>
@@ -213,7 +237,9 @@ const App: FC = () => {
           </Row>
           <Row>
             <Label>Fortnightly Tax:</Label>
-            <Value>{formatCurrency(calculateTax(parsedIncome) / 26)}</Value>
+            <Value>
+              {formatCurrency(calculateTax(parsedIncome, taxYearEnding) / 26)}
+            </Value>
           </Row>
           <Row style={{ marginTop: '2rem' }}>
             <Label>Fortnightly Less Tax:</Label>

@@ -85,6 +85,36 @@ Object {
           >
             <div
               class="sc-htpNat hqmgw"
+            >
+              <div
+                class="sc-bxivhb kKGLjl"
+              >
+                Tax Year:
+              </div>
+              <div
+                class="sc-EHOje lclkHR"
+              >
+                <label>
+                  <input
+                    checked=""
+                    type="radio"
+                    value="2020"
+                  />
+                  2019 / 2020
+                   
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    value="2021"
+                  />
+                  2020 / 2021
+                   
+                </label>
+              </div>
+            </div>
+            <div
+              class="sc-htpNat hqmgw"
               style="margin: 1rem 0px 2rem;"
             >
               <label
@@ -308,6 +338,36 @@ Object {
         <div
           style="background-color: rgb(238, 238, 238); margin: 0px -3rem; padding: 1rem 0.9rem 2rem 3rem;"
         >
+          <div
+            class="sc-htpNat hqmgw"
+          >
+            <div
+              class="sc-bxivhb kKGLjl"
+            >
+              Tax Year:
+            </div>
+            <div
+              class="sc-EHOje lclkHR"
+            >
+              <label>
+                <input
+                  checked=""
+                  type="radio"
+                  value="2020"
+                />
+                2019 / 2020
+                 
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  value="2021"
+                />
+                2020 / 2021
+                 
+              </label>
+            </div>
+          </div>
           <div
             class="sc-htpNat hqmgw"
             style="margin: 1rem 0px 2rem;"

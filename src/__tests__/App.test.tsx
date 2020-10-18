@@ -4,7 +4,7 @@ import App from '../App';
 
 describe('App', () => {
   test('renders without crashing', () => {
-    const container = render(<App />);
+    const container = render(<App taxYearEnding={2020} />);
     expect(container).toMatchSnapshot();
   });
 
@@ -15,7 +15,7 @@ describe('App', () => {
     ['120000', '$3,295.38'],
     ['185000', '$4,805.38']
   ])('calculates basic rates (%i)', (income, expected) => {
-    const { getByTestId } = render(<App />);
+    const { getByTestId } = render(<App taxYearEnding={2020} />);
     const incomeField = getByTestId('income');
     const fortnightlyField = getByTestId('fortnightly-less-tax');
 
@@ -24,7 +24,7 @@ describe('App', () => {
   });
 
   test('should work with templates', () => {
-    const { getByTestId } = render(<App />);
+    const { getByTestId } = render(<App taxYearEnding={2020} />);
     const contractorTemplateButton = getByTestId('template-contractor');
     const partTimeTemplateButton = getByTestId('template-part-time');
     const incomeField = getByTestId('income');
