@@ -61,10 +61,8 @@ interface Props {
 const App: FC<Props> = ({ taxYearEnding: initialTaxYearEnding }) => {
   const [income, setIncome] = useState('90000');
   const [parsedIncome, setParsedIncome] = useState(90000);
-  const [
-    rememberedFortnightlyAfterTax,
-    setRememberedFortnightlyAfterTax
-  ] = useState(-1);
+  const [rememberedFortnightlyAfterTax, setRememberedFortnightlyAfterTax] =
+    useState(-1);
   const [taxYearEnding, setTaxYearEnding] = useState(
     initialTaxYearEnding || 2021
   );
@@ -112,9 +110,13 @@ const App: FC<Props> = ({ taxYearEnding: initialTaxYearEnding }) => {
         <h1>Quick Tax Calc</h1>
         <p>
           This is a quick calculator for the{' '}
-          <a href="https://www.ato.gov.au/Rates/Individual-income-tax-rates/">
-            ATO Australian Individual Tax Rates
+          <a href="https://www.ato.gov.au/Rates/Schedule-1---Statement-of-formulas-for-calculating-amounts-to-be-withheld/">
+            ATO Australian tax witholding formula
           </a>
+        </p>
+        <p>
+          It's based on Scale 2 - claiming the tax free threshold, no Medicare
+          levy exemption.
         </p>
         <h2 style={{ marginBottom: 0 }}>How to use</h2>
         <p>
