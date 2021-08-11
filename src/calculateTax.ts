@@ -32,7 +32,7 @@ const coefficients: TaxFormulaCoefficientsYear = {
   ]
 };
 
-export default (parsedIncome: number, taxYearEnding: number) => {
+const calculateTax = (parsedIncome: number, taxYearEnding: number) => {
   const weeklyIncome = Math.trunc(parsedIncome / 52) + 0.99;
   const { a, b } = coefficients[taxYearEnding].find(
     (elem) => elem.weeklyEarningsMax > weeklyIncome
@@ -43,5 +43,6 @@ export default (parsedIncome: number, taxYearEnding: number) => {
   return weeklyResult * 52;
 };
 
+export default calculateTax;
 const validYears = Object.keys(coefficients);
 export { validYears };

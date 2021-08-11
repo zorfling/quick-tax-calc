@@ -1,6 +1,8 @@
 # Quick Tax Calc
 
-This is a quick calculator for the [ATO Australian Individual Tax Rates](https://www.ato.gov.au/Rates/Individual-income-tax-rates/).
+This is a quick calculator for the [ATO Australian tax witholding formula](https://www.ato.gov.au/Rates/Schedule-1---Statement-of-formulas-for-calculating-amounts-to-be-withheld/).
+
+It's based on Scale 2 - claiming the tax free threshold, no Medicare levy exemption.
 
 ## Usage
 
@@ -17,11 +19,11 @@ The income section also allows for formulae so you can do things like:
 
 ## Run instructions
 
-`npm start`
+`yarn start`
 
 ## Demo
 
-Try it out at https://quick-tax-calc.netlify.com/
+Try it out at https://quick-tax-calc.netlify.app/
 
 ## Roadmap
 
