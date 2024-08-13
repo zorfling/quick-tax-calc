@@ -9,17 +9,7 @@ interface TaxFormulaCoefficientsYear {
 }
 
 const coefficients: TaxFormulaCoefficientsYear = {
-  2020: [
-    { weeklyEarningsMax: 355, a: 0, b: 0 },
-    { weeklyEarningsMax: 422, a: 0.19, b: 67.4635 },
-    { weeklyEarningsMax: 528, a: 0.29, b: 109.7327 },
-    { weeklyEarningsMax: 711, a: 0.21, b: 67.4635 },
-    { weeklyEarningsMax: 1282, a: 0.3477, b: 165.4423 },
-    { weeklyEarningsMax: 1730, a: 0.345, b: 161.9808 },
-    { weeklyEarningsMax: 3461, a: 0.39, b: 239.8654 },
-    { weeklyEarningsMax: 9999999, a: 0.47, b: 516.7885 }
-  ],
-  2021: [
+  2024: [
     { weeklyEarningsMax: 359, a: 0, b: 0 },
     { weeklyEarningsMax: 438, a: 0.19, b: 68.3462 },
     { weeklyEarningsMax: 548, a: 0.29, b: 112.1942 },
@@ -28,8 +18,19 @@ const coefficients: TaxFormulaCoefficientsYear = {
     { weeklyEarningsMax: 1282, a: 0.3477, b: 186.2119 },
     { weeklyEarningsMax: 2307, a: 0.345, b: 182.7504 },
     { weeklyEarningsMax: 3461, a: 0.39, b: 286.5965 },
-    { weeklyEarningsMax: 9999999, a: 0.47, b: 563.5196 }
-  ]
+    { weeklyEarningsMax: 9999999, a: 0.47, b: 563.5196 },
+  ],
+  2025: [
+    { weeklyEarningsMax: 361, a: 0, b: 0 },
+    { weeklyEarningsMax: 500, a: 0.16, b: 57.8462 },
+    { weeklyEarningsMax: 625, a: 0.26, b: 107.8462 },
+    { weeklyEarningsMax: 721, a: 0.18, b: 57.8462 },
+    { weeklyEarningsMax: 865, a: 0.189, b: 64.3365 },
+    { weeklyEarningsMax: 1282, a: 0.3227, b: 180.0385 },
+    { weeklyEarningsMax: 2596, a: 0.32, b: 176.5769 },
+    { weeklyEarningsMax: 3653, a: 0.39, b: 358.3077 },
+    { weeklyEarningsMax: 9999999, a: 0.47, b: 650.6154 },
+  ],
 };
 
 const calculateTax = (parsedIncome: number, taxYearEnding: number) => {

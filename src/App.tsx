@@ -50,7 +50,7 @@ const Value = styled.div`
 const formatCurrency = (amount: number) => {
   return Number(amount).toLocaleString('en-AU', {
     currency: 'AUD',
-    style: 'currency'
+    style: 'currency',
   });
 };
 
@@ -58,13 +58,17 @@ interface Props {
   taxYearEnding?: number;
 }
 
-const App: FC<Props> = ({ taxYearEnding: initialTaxYearEnding }) => {
+const App: FC<Props> = ({
+  taxYearEnding: initialTaxYearEnding,
+}: {
+  taxYearEnding?: number;
+}) => {
   const [income, setIncome] = useState('90000');
   const [parsedIncome, setParsedIncome] = useState(90000);
   const [rememberedFortnightlyAfterTax, setRememberedFortnightlyAfterTax] =
     useState(-1);
   const [taxYearEnding, setTaxYearEnding] = useState(
-    initialTaxYearEnding || 2021
+    initialTaxYearEnding || 2025
   );
 
   const annualAfterTax =
@@ -175,7 +179,7 @@ const App: FC<Props> = ({ taxYearEnding: initialTaxYearEnding }) => {
           style={{
             backgroundColor: '#eee',
             margin: '0 -3rem',
-            padding: '1rem 0.9rem 2rem 3rem'
+            padding: '1rem 0.9rem 2rem 3rem',
           }}
         >
           <Row>
@@ -210,7 +214,7 @@ const App: FC<Props> = ({ taxYearEnding: initialTaxYearEnding }) => {
                   fontSize: '1.4em',
                   textAlign: 'right',
                   border: '1px solid #ccc',
-                  maxWidth: '215px'
+                  maxWidth: '215px',
                 }}
                 data-testid="income"
               />
@@ -248,7 +252,7 @@ const App: FC<Props> = ({ taxYearEnding: initialTaxYearEnding }) => {
             <Value
               style={{
                 fontSize: '1.5em',
-                marginRight: 0
+                marginRight: 0,
               }}
             >
               <span data-testid="fortnightly-less-tax">
@@ -259,7 +263,7 @@ const App: FC<Props> = ({ taxYearEnding: initialTaxYearEnding }) => {
                 style={{
                   height: '1.5rem',
                   verticalAlign: 'bottom',
-                  marginLeft: '0.5rem'
+                  marginLeft: '0.5rem',
                 }}
               >
                 M
@@ -282,7 +286,7 @@ const App: FC<Props> = ({ taxYearEnding: initialTaxYearEnding }) => {
                     color:
                       annualAfterTax / 26 - rememberedFortnightlyAfterTax < 0
                         ? '#f00'
-                        : '#009e00'
+                        : '#009e00',
                   }}
                 >
                   {formatCurrency(
