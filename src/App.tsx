@@ -68,7 +68,7 @@ const App: FC<Props> = ({
   const [rememberedFortnightlyAfterTax, setRememberedFortnightlyAfterTax] =
     useState(-1);
   const [taxYearEnding, setTaxYearEnding] = useState(
-    initialTaxYearEnding || 2025
+    initialTaxYearEnding || 2026
   );
 
   const annualAfterTax =

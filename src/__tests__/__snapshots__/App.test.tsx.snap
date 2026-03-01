@@ -6,10 +6,10 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="sc-bdVaJa dsjtQI"
+        class="sc-bdvvtL ivhzLL"
       >
         <div
-          class="sc-bwzfXH eRYMzF"
+          class="sc-gsDKAQ jFUbsg"
         >
           <h1>
             Quick Tax Calc
@@ -18,10 +18,13 @@ Object {
             This is a quick calculator for the
              
             <a
-              href="https://www.ato.gov.au/Rates/Individual-income-tax-rates/"
+              href="https://www.ato.gov.au/Rates/Schedule-1---Statement-of-formulas-for-calculating-amounts-to-be-withheld/"
             >
-              ATO Australian Individual Tax Rates
+              ATO Australian tax witholding formula
             </a>
+          </p>
+          <p>
+            It's based on Scale 2 - claiming the tax free threshold, no Medicare levy exemption.
           </p>
           <h2
             style="margin-bottom: 0px;"
@@ -84,47 +87,55 @@ Object {
             style="background-color: rgb(238, 238, 238); margin: 0px -3rem; padding: 1rem 0.9rem 2rem 3rem;"
           >
             <div
-              class="sc-htpNat hqmgw"
+              class="sc-dkPtRN gpSgKu"
             >
               <div
-                class="sc-bxivhb kKGLjl"
+                class="sc-hKwDye dzJbml"
               >
                 Tax Year:
               </div>
               <div
-                class="sc-EHOje lclkHR"
+                class="sc-jRQBWg kkidSd"
               >
                 <label>
                   <input
-                    checked=""
                     type="radio"
-                    value="2020"
+                    value="2024"
                   />
-                  2019 / 2020
+                  2023 / 2024
                    
                 </label>
                 <label>
                   <input
                     type="radio"
-                    value="2021"
+                    value="2025"
                   />
-                  2020 / 2021
+                  2024 / 2025
+                   
+                </label>
+                <label>
+                  <input
+                    checked=""
+                    type="radio"
+                    value="2026"
+                  />
+                  2025 / 2026
                    
                 </label>
               </div>
             </div>
             <div
-              class="sc-htpNat hqmgw"
+              class="sc-dkPtRN gpSgKu"
               style="margin: 1rem 0px 2rem;"
             >
               <label
-                class="sc-ifAKCX jhSUeN"
+                class="sc-eCImPb eMNjgV"
                 for="income"
               >
                 Income:
               </label>
               <div
-                class="sc-EHOje lclkHR"
+                class="sc-jRQBWg kkidSd"
               >
                 <input
                   data-testid="income"
@@ -141,93 +152,93 @@ Object {
               </div>
             </div>
             <div
-              class="sc-htpNat hqmgw"
+              class="sc-dkPtRN gpSgKu"
             >
               <div
-                class="sc-bxivhb kKGLjl"
+                class="sc-hKwDye dzJbml"
               >
                 Income:
               </div>
               <div
-                class="sc-EHOje lclkHR"
+                class="sc-jRQBWg kkidSd"
               >
-                A$90,000.00
+                $90,000.00
               </div>
             </div>
             <div
-              class="sc-htpNat hqmgw"
+              class="sc-dkPtRN gpSgKu"
             >
               <div
-                class="sc-bxivhb kKGLjl"
+                class="sc-hKwDye dzJbml"
               >
                 Tax:
               </div>
               <div
-                class="sc-EHOje lclkHR"
+                class="sc-jRQBWg kkidSd"
               >
-                A$22,620.00
+                $19,604.00
               </div>
             </div>
             <div
-              class="sc-htpNat hqmgw"
+              class="sc-dkPtRN gpSgKu"
               style="margin-bottom: 2rem;"
             >
               <div
-                class="sc-bxivhb kKGLjl"
+                class="sc-hKwDye dzJbml"
               >
                 Annual Less Tax:
               </div>
               <div
-                class="sc-EHOje lclkHR"
+                class="sc-jRQBWg kkidSd"
               >
-                A$67,380.00
+                $70,396.00
               </div>
             </div>
             <div
-              class="sc-htpNat hqmgw"
+              class="sc-dkPtRN gpSgKu"
             >
               <div
-                class="sc-bxivhb kKGLjl"
+                class="sc-hKwDye dzJbml"
               >
                 Fortnightly:
               </div>
               <div
-                class="sc-EHOje lclkHR"
+                class="sc-jRQBWg kkidSd"
               >
-                A$3,461.54
+                $3,461.54
               </div>
             </div>
             <div
-              class="sc-htpNat hqmgw"
+              class="sc-dkPtRN gpSgKu"
             >
               <div
-                class="sc-bxivhb kKGLjl"
+                class="sc-hKwDye dzJbml"
               >
                 Fortnightly Tax:
               </div>
               <div
-                class="sc-EHOje lclkHR"
+                class="sc-jRQBWg kkidSd"
               >
-                A$870.00
+                $754.00
               </div>
             </div>
             <div
-              class="sc-htpNat hqmgw"
+              class="sc-dkPtRN gpSgKu"
               style="margin-top: 2rem;"
             >
               <div
-                class="sc-bxivhb kKGLjl"
+                class="sc-hKwDye dzJbml"
               >
                 Fortnightly Less Tax:
               </div>
               <div
-                class="sc-EHOje lclkHR"
+                class="sc-jRQBWg kkidSd"
                 style="font-size: 1.5em; margin-right: 0px;"
               >
                 <span
                   data-testid="fortnightly-less-tax"
                 >
-                  A$2,591.54
+                  $2,707.54
                 </span>
                 <button
                   style="height: 1.5rem; vertical-align: bottom; margin-left: 0.5rem;"
@@ -261,10 +272,10 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="sc-bdVaJa dsjtQI"
+      class="sc-bdvvtL ivhzLL"
     >
       <div
-        class="sc-bwzfXH eRYMzF"
+        class="sc-gsDKAQ jFUbsg"
       >
         <h1>
           Quick Tax Calc
@@ -273,10 +284,13 @@ Object {
           This is a quick calculator for the
            
           <a
-            href="https://www.ato.gov.au/Rates/Individual-income-tax-rates/"
+            href="https://www.ato.gov.au/Rates/Schedule-1---Statement-of-formulas-for-calculating-amounts-to-be-withheld/"
           >
-            ATO Australian Individual Tax Rates
+            ATO Australian tax witholding formula
           </a>
+        </p>
+        <p>
+          It's based on Scale 2 - claiming the tax free threshold, no Medicare levy exemption.
         </p>
         <h2
           style="margin-bottom: 0px;"
@@ -339,47 +353,55 @@ Object {
           style="background-color: rgb(238, 238, 238); margin: 0px -3rem; padding: 1rem 0.9rem 2rem 3rem;"
         >
           <div
-            class="sc-htpNat hqmgw"
+            class="sc-dkPtRN gpSgKu"
           >
             <div
-              class="sc-bxivhb kKGLjl"
+              class="sc-hKwDye dzJbml"
             >
               Tax Year:
             </div>
             <div
-              class="sc-EHOje lclkHR"
+              class="sc-jRQBWg kkidSd"
             >
               <label>
                 <input
-                  checked=""
                   type="radio"
-                  value="2020"
+                  value="2024"
                 />
-                2019 / 2020
+                2023 / 2024
                  
               </label>
               <label>
                 <input
                   type="radio"
-                  value="2021"
+                  value="2025"
                 />
-                2020 / 2021
+                2024 / 2025
+                 
+              </label>
+              <label>
+                <input
+                  checked=""
+                  type="radio"
+                  value="2026"
+                />
+                2025 / 2026
                  
               </label>
             </div>
           </div>
           <div
-            class="sc-htpNat hqmgw"
+            class="sc-dkPtRN gpSgKu"
             style="margin: 1rem 0px 2rem;"
           >
             <label
-              class="sc-ifAKCX jhSUeN"
+              class="sc-eCImPb eMNjgV"
               for="income"
             >
               Income:
             </label>
             <div
-              class="sc-EHOje lclkHR"
+              class="sc-jRQBWg kkidSd"
             >
               <input
                 data-testid="income"
@@ -396,93 +418,93 @@ Object {
             </div>
           </div>
           <div
-            class="sc-htpNat hqmgw"
+            class="sc-dkPtRN gpSgKu"
           >
             <div
-              class="sc-bxivhb kKGLjl"
+              class="sc-hKwDye dzJbml"
             >
               Income:
             </div>
             <div
-              class="sc-EHOje lclkHR"
+              class="sc-jRQBWg kkidSd"
             >
-              A$90,000.00
+              $90,000.00
             </div>
           </div>
           <div
-            class="sc-htpNat hqmgw"
+            class="sc-dkPtRN gpSgKu"
           >
             <div
-              class="sc-bxivhb kKGLjl"
+              class="sc-hKwDye dzJbml"
             >
               Tax:
             </div>
             <div
-              class="sc-EHOje lclkHR"
+              class="sc-jRQBWg kkidSd"
             >
-              A$22,620.00
+              $19,604.00
             </div>
           </div>
           <div
-            class="sc-htpNat hqmgw"
+            class="sc-dkPtRN gpSgKu"
             style="margin-bottom: 2rem;"
           >
             <div
-              class="sc-bxivhb kKGLjl"
+              class="sc-hKwDye dzJbml"
             >
               Annual Less Tax:
             </div>
             <div
-              class="sc-EHOje lclkHR"
+              class="sc-jRQBWg kkidSd"
             >
-              A$67,380.00
+              $70,396.00
             </div>
           </div>
           <div
-            class="sc-htpNat hqmgw"
+            class="sc-dkPtRN gpSgKu"
           >
             <div
-              class="sc-bxivhb kKGLjl"
+              class="sc-hKwDye dzJbml"
             >
               Fortnightly:
             </div>
             <div
-              class="sc-EHOje lclkHR"
+              class="sc-jRQBWg kkidSd"
             >
-              A$3,461.54
+              $3,461.54
             </div>
           </div>
           <div
-            class="sc-htpNat hqmgw"
+            class="sc-dkPtRN gpSgKu"
           >
             <div
-              class="sc-bxivhb kKGLjl"
+              class="sc-hKwDye dzJbml"
             >
               Fortnightly Tax:
             </div>
             <div
-              class="sc-EHOje lclkHR"
+              class="sc-jRQBWg kkidSd"
             >
-              A$870.00
+              $754.00
             </div>
           </div>
           <div
-            class="sc-htpNat hqmgw"
+            class="sc-dkPtRN gpSgKu"
             style="margin-top: 2rem;"
           >
             <div
-              class="sc-bxivhb kKGLjl"
+              class="sc-hKwDye dzJbml"
             >
               Fortnightly Less Tax:
             </div>
             <div
-              class="sc-EHOje lclkHR"
+              class="sc-jRQBWg kkidSd"
               style="font-size: 1.5em; margin-right: 0px;"
             >
               <span
                 data-testid="fortnightly-less-tax"
               >
-                A$2,591.54
+                $2,707.54
               </span>
               <button
                 style="height: 1.5rem; vertical-align: bottom; margin-left: 0.5rem;"
